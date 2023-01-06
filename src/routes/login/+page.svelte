@@ -1,25 +1,56 @@
+<script>
+	import { enhance } from '$app/forms';
+	import toast from 'svelte-french-toast';
+	let loading = false;
+
+	const submitLogin = () => {
+		loading = true;
+		return async ({ result, update }) => {
+			switch (result.type) {
+				case 'success':
+					await update();
+					break;
+				case 'invalid':
+					toast.error('Invalid credentials', {
+						position: 'top-center'
+					});
+					await update();
+					break;
+				case 'error':
+					toast.error(result.error.message, {
+						position: 'top-center'
+					});
+					break;
+				default:
+					await update();
+			}
+			loading = false;
+		};
+	};
+</script>
+
 <div class="body-page">
 	<div class="card">
-		<h1>Svelte Shortener</h1>
-		<p>Shorten your links</p>
-		<form action="?/shorten" method="POST">
-			<label for="redirect">Link to shorten</label>
-			<input type="text" name="redirect" id="redirect" placeholder="https://example.com" required />
-			<label for="slug">Slug (optional)</label>
-			<input type="text" name="slug" id="slug" minlength="2" placeholder="slug" />
-			<button type="submit">Shorten</button>
+		<h1>Log in</h1>
+		<form action="?/login" method="POST" use:enhance={submitLogin}>
+			<label for="email">Email</label>
+			<input
+				type="email"
+				name="email"
+				placeholder="johndoe@gmail.com"
+				required
+				disabled={loading}
+			/>
+			<label for="password">Password</label>
+			<input
+				type="password"
+				name="password"
+				placeholder="****************"
+				required
+				disabled={loading}
+			/>
+			<button type="submit" disabled={loading}>Log in</button>
 		</form>
-		<div class="tech">
-			<p>Built with</p>
-			<div class="tech-images">
-				<a href="https://svelte.dev">
-					<img src="/assets/svelte.svg" alt="Svelte" />
-				</a>
-				<a href="https://pocketbase.io">
-					<img src="/assets/pocketbase.svg" alt="Pocketbase" />
-				</a>
-			</div>
-		</div>
 	</div>
 </div>
 
@@ -44,7 +75,6 @@
 
 	.body-page::before {
 		content: '';
-		/* Image by rawpixel.com on Freepik */
 		background-image: url('/assets/wavesBg.png');
 		background-size: cover;
 		position: absolute;
@@ -70,13 +100,6 @@
 		text-align: center;
 	}
 
-	.card p {
-		font-family: 'Inter', sans-serif;
-		font-size: 1.5rem;
-		margin: 0;
-		text-align: center;
-	}
-
 	.card form {
 		display: flex;
 		flex-direction: column;
@@ -88,7 +111,6 @@
 		font-size: 1.5rem;
 		margin: 0.5rem 0;
 		padding-top: 25px;
-		align-self: center;
 	}
 
 	.card form input {
@@ -97,8 +119,6 @@
 		border: 2.5px solid black;
 		border-radius: 10px;
 		font-family: 'Inter', sans-serif;
-		width: 400px;
-		align-self: center;
 	}
 
 	.card form button {
@@ -130,37 +150,12 @@
 		background: #eee;
 	}
 
-	.tech {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding-top: 50px;
-	}
-
-	img {
-		width: 25px;
-	}
-
-	.tech-images {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		padding-top: 20px;
-		gap: 50px;
-	}
-
 	@media (max-width: 1250px) {
 		.card {
 			width: 60%;
 		}
 
 		.card form button {
-			width: 100%;
-		}
-
-		.card form input {
 			width: 100%;
 		}
 	}

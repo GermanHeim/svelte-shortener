@@ -22,6 +22,8 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"pocketbase": "^0.9.1"
+		"pocketbase": "^0.9.1",
+		"svelte-french-toast": "^1.0.3",
+		"svelte-icons-pack": "^2.0.0"
 	}
 }

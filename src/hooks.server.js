@@ -1,9 +1,9 @@
 import PocketBase from 'pocketbase';
 import { serializeNonPOJOs } from '$lib/utils';
-import { pocketbase_url } from './lib/utils';
+import { POCKETBASE_URL } from '$env/static/private';
 
 export const handle = async ({ event, resolve }) => {
-	event.locals.pb = new PocketBase(pocketbase_url);
+	event.locals.pb = new PocketBase(POCKETBASE_URL);
 	event.locals.pb.authStore.loadFromCookie(event.request.headers.get('cookie') || '');
 
 	try {
@@ -17,8 +17,6 @@ export const handle = async ({ event, resolve }) => {
 	}
 
 	const response = await resolve(event);
-
-	response.headers.set('set-cookie', event.locals.pb.authStore.exportToCookie({ secure: false }));
-
+	response.headers.set('set-cookie', event.locals.pb.authStore.exportToCookie({ secure: false })); // Change to true in production
 	return response;
 };
