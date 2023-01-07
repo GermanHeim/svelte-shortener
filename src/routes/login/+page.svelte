@@ -2,6 +2,8 @@
 	import { enhance } from '$app/forms';
 	import toast from 'svelte-french-toast';
 	let loading = false;
+	import Icon from 'svelte-icons-pack/Icon.svelte';
+	import FiLogIn from 'svelte-icons-pack/fi/FiLogIn';
 
 	const submitLogin = () => {
 		loading = true;
@@ -10,15 +12,10 @@
 				case 'success':
 					await update();
 					break;
-				case 'invalid':
-					toast.error('Invalid credentials', {
-						position: 'top-center'
-					});
-					await update();
-					break;
 				case 'error':
 					toast.error(result.error.message, {
-						position: 'top-center'
+						position: 'top-center',
+						style: 'border: 1px solid black; color: black; font-family: "Inter", sans-serif;'
 					});
 					break;
 				default:
@@ -31,7 +28,7 @@
 
 <div class="body-page">
 	<div class="card">
-		<h1>Log in</h1>
+		<h1>Login</h1>
 		<form action="?/login" method="POST" use:enhance={submitLogin}>
 			<label for="email">Email</label>
 			<input
@@ -49,7 +46,7 @@
 				required
 				disabled={loading}
 			/>
-			<button type="submit" disabled={loading}>Log in</button>
+			<button type="submit" disabled={loading}>Log in<Icon src={FiLogIn} size="22" /></button>
 		</form>
 	</div>
 </div>
@@ -82,7 +79,7 @@
 		right: 0px;
 		bottom: 0px;
 		left: 0px;
-		opacity: 0.3;
+		opacity: 0.1;
 	}
 	.card {
 		width: 30%;
@@ -122,6 +119,10 @@
 	}
 
 	.card form button {
+		cursor: pointer;
+		display: flex;
+		flex-direction: row;
+		gap: 0.5rem;
 		font-family: 'Inter', sans-serif;
 		align-items: center;
 		justify-content: center;
@@ -157,6 +158,10 @@
 
 		.card form button {
 			width: 100%;
+		}
+
+		.card form input {
+			font-size: 1.25rem;
 		}
 	}
 </style>

@@ -2,15 +2,27 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import Icon from 'svelte-icons-pack/Icon.svelte';
+	import FiArrowRight from 'svelte-icons-pack/fi/FiArrowRight';
 	let host;
 	onMount(() => (host = window.location.origin));
 </script>
 
 <div class="body-page">
 	<div class="card">
-		<h1>URL Shortened</h1>
-		<p><a href="/{$page.params.slug}">{host}/{$page.params.slug}</a></p>
-		<button on:click={() => goto('/')}>Shorten another URL</button>
+		{#await host}
+			<h1>Loading shortened URL...</h1>
+		{:then}
+			<h1>URL Shortened</h1>
+			<p>
+				<a href="/{$page.params.slug}" target="_blank" rel="noopener noreferrer"
+					>{host}/{$page.params.slug}</a
+				>
+			</p>
+			<button id="shorten" on:click={() => goto('/')}
+				>Shorten another URL <Icon src={FiArrowRight} size="22" /></button
+			>
+		{/await}
 	</div>
 </div>
 
@@ -42,7 +54,7 @@
 		right: 0px;
 		bottom: 0px;
 		left: 0px;
-		opacity: 0.3;
+		opacity: 0.2;
 	}
 
 	.card {
@@ -75,6 +87,10 @@
 	}
 
 	.card button {
+		cursor: pointer;
+		display: flex;
+		flex-direction: row;
+		gap: 0.5rem;
 		margin-top: 1rem;
 		align-self: center;
 		font-family: 'Inter', sans-serif;
@@ -104,6 +120,17 @@
 	@media (max-width: 1250px) {
 		.card {
 			width: 60%;
+		}
+		#shorten {
+			width: 100%;
+		}
+	}
+	@media (max-width: 600px) {
+		.card p {
+			font-size: 1.25rem;
+		}
+		.card h1 {
+			font-size: 2rem;
 		}
 	}
 </style>

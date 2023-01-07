@@ -1,5 +1,8 @@
 <script>
 	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
+	import Icon from 'svelte-icons-pack/Icon.svelte';
+	import FiHome from 'svelte-icons-pack/fi/FiHome';
 </script>
 
 {#if $page}
@@ -7,6 +10,7 @@
 		<div class="card">
 			<h2>{$page.status}: {$page.error.message}</h2>
 			<p>Something went wrong.</p>
+			<button on:click={() => goto('/')}>Go Home <Icon src={FiHome} size="22" /></button>
 		</div>
 	</div>
 {/if}
@@ -39,7 +43,7 @@
 		right: 0px;
 		bottom: 0px;
 		left: 0px;
-		opacity: 0.5;
+		opacity: 0.1;
 	}
 
 	.card {
@@ -63,6 +67,34 @@
 		margin: 0;
 		padding-top: 10px;
 		text-align: center;
+	}
+	.card button {
+		cursor: pointer;
+		display: flex;
+		flex-direction: row;
+		gap: 0.5rem;
+		font-family: 'Inter', sans-serif;
+		align-items: center;
+		justify-content: center;
+		line-height: 1;
+		color: black;
+		font-size: 18px;
+		border-radius: 0px;
+		width: 400px;
+		height: 65px;
+		font-weight: bold;
+		border: 2px solid black;
+		transition: 0.3s;
+		box-shadow: 5px 5px 0px 0px black;
+		background-color: #ffffff;
+		border-radius: 10px;
+		margin: 2rem auto 0.5rem auto;
+	}
+
+	.card button:hover {
+		box-shadow: 0 0 black;
+		color: #fff;
+		background-color: black;
 	}
 
 	@media (max-width: 600px) {

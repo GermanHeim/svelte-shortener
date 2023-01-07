@@ -47,7 +47,7 @@
     "options": {
       "allowEmailAuth": true,
       "allowOAuth2Auth": false,
-      "allowUsernameAuth": true,
+      "allowUsernameAuth": false,
       "exceptEmailDomains": null,
       "manageRule": null,
       "minPasswordLength": 8,
@@ -87,9 +87,9 @@
         }
       }
     ],
-    "listRule": null,
-    "viewRule": null,
-    "createRule": null,
+    "listRule": "",
+    "viewRule": "",
+    "createRule": "@request.auth.id != \"\" && @request.auth.verified = true",
     "updateRule": null,
     "deleteRule": null,
     "options": {}

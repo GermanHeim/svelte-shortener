@@ -13,3 +13,7 @@ export const validURL = (str) => {
     '(\\#[-a-z\\d_]*)?$','i');
   return !!pattern.test(str);
 };
+
+export const generateRandomSlug = () => {
+  [...Array(Math.floor(Math.random() * (10 - 5 + 1)) + 5)].map(()=>(~~(Math.random()*36)).toString(36)).join('');
+};

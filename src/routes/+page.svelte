@@ -1,13 +1,19 @@
+<script>
+	import Icon from 'svelte-icons-pack/Icon.svelte';
+	import FiLink from 'svelte-icons-pack/fi/FiLink';
+</script>
+
 <div class="body-page">
 	<div class="card">
+		<img src="/favicon.png" alt="Svelte Shortener" id="logo" />
 		<h1>Svelte Shortener</h1>
 		<p>Shorten your links</p>
 		<form action="?/shorten" method="POST">
 			<label for="redirect">Link to shorten</label>
-			<input type="text" name="redirect" id="redirect" placeholder="https://example.com" required />
+			<input type="text" name="redirect" id="redirect" placeholder="example.com" required />
 			<label for="slug">Slug (optional)</label>
 			<input type="text" name="slug" id="slug" minlength="2" placeholder="slug" />
-			<button type="submit">Shorten</button>
+			<button type="submit">Shorten <Icon src={FiLink} size="22" /></button>
 		</form>
 		<div class="tech">
 			<p>Built with</p>
@@ -52,7 +58,7 @@
 		right: 0px;
 		bottom: 0px;
 		left: 0px;
-		opacity: 0.3;
+		opacity: 0.1;
 	}
 	.card {
 		width: 30%;
@@ -61,6 +67,13 @@
 		border-radius: 5px;
 		padding: 3rem;
 		border: black 3px solid;
+	}
+	#logo {
+		width: 80px;
+		height: 80px;
+		display: block;
+		margin: 0 auto;
+		padding-bottom: 20px;
 	}
 
 	.card h1 {
@@ -102,6 +115,10 @@
 	}
 
 	.card form button {
+		cursor: pointer;
+		display: flex;
+		flex-direction: row;
+		gap: 0.5rem;
 		font-family: 'Inter', sans-serif;
 		align-items: center;
 		justify-content: center;
@@ -162,6 +179,47 @@
 
 		.card form input {
 			width: 100%;
+		}
+	}
+
+	/* On mobile, make the text smaller and the image too */
+	@media (max-width: 800px) {
+		.card form button {
+			width: 100%;
+		}
+
+		.card form input {
+			width: 100%;
+		}
+
+		.card h1 {
+			font-size: 2rem;
+		}
+
+		.card p {
+			font-size: 1.1rem;
+		}
+
+		.card form label {
+			font-size: 1.25rem;
+		}
+
+		.card form input {
+			font-size: 1rem;
+		}
+
+		.card form button {
+			font-size: 1.25rem;
+		}
+
+		.tech-images {
+			gap: 20px;
+			padding-top: 5px;
+		}
+
+		#logo {
+			width: 50px;
+			height: 50px;
 		}
 	}
 </style>
