@@ -51,7 +51,7 @@
 	.body-page::before {
 		content: '';
 		/* Image by rawpixel.com on Freepik */
-		background-image: url('/assets/wavesBg.png');
+		background-image: url('/assets/wavesBg.webp');
 		background-size: cover;
 		position: absolute;
 		top: 0px;

@@ -36,7 +36,7 @@
 
 	.body-page::before {
 		content: '';
-		background-image: url('/assets/wavesBg.png');
+		background-image: url('/assets/wavesBg.webp');
 		background-size: cover;
 		position: absolute;
 		top: 0px;
