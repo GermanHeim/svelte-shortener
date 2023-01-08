@@ -78,14 +78,14 @@
 
 	.card h1 {
 		font-family: 'JetBrains Mono', monospace;
-		font-size: 2.5rem;
+		font-size: 2rem;
 		margin: 0;
 		text-align: center;
 	}
 
 	.card p {
 		font-family: 'Inter', sans-serif;
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		margin: 0;
 		text-align: center;
 	}
@@ -98,14 +98,14 @@
 
 	.card form label {
 		font-family: 'Inter', sans-serif;
-		font-size: 1.5rem;
+		font-size: 1.2rem;
 		margin: 0.5rem 0;
 		padding-top: 25px;
 		align-self: center;
 	}
 
 	.card form input {
-		font-size: 1.35rem;
+		font-size: 1.15rem;
 		padding: 0.5rem;
 		border: 2.5px solid black;
 		border-radius: 10px;
@@ -182,7 +182,6 @@
 		}
 	}
 
-	/* On mobile, make the text smaller and the image too */
 	@media (max-width: 800px) {
 		.card form button {
 			width: 100%;

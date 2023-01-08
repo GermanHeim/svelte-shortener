@@ -41,7 +41,7 @@
 
 
 ## Demo
-![Demo GIF](https://media0.giphy.com/media/lXuXFPBDwLrTM1kUkZ/giphy.gif?cid=790b76114877ebc4d96edbc4095329fbf6aff1d1e8b78c63&rid=giphy.gif&ct=g)
+![Demo GIF](https://media1.giphy.com/media/t4PxHCFR2A6b0hw9Wo/giphy.gif?cid=790b76114c582f0c52f3f1f4e2a6b1b85f591f426542a013&rid=giphy.gif&ct=g)
 
 [Live demo](https://demo-svelte-shortener.vercel.app/)
 
@@ -120,6 +120,6 @@ Distributed under the MIT License. See [`LICENSE.md`](/LICENSE.md) for more info
 
 ## Acknowledgments
 
-The UI is based on Pocketbase.</br>
+The UI is highly inspired on Pocketbase.</br>
 The logo was made from the PocketBase's logo, using Feather's link icon.
 The background that is used was made by [rawpixel.com](https://rawpixel.com) and it was downloaded from [Freepik](https://www.freepik.com/free-vector/monochrome-abstract-contour-line-illustration_3841780.htm#query=topography&position=10&from_view=keyword).
