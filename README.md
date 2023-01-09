@@ -61,7 +61,7 @@ To setup your own instance of Svelte Shortener you will need a PocketBase deploy
 To configure your PocketBase, you will need to import the [schema](/pocketbase/pb_schema.json) by going to your PocketBase instance, and clicking on `Import collections` inside settings. After this, you will need to create a new verified user. This will be the user you will use to authenticate yourself. 
 
 ### Deploy
-After getting your database set up, you will need to deploy the actual WebApp. You can do this by clicking the button below, and filling in the required environment variables (your PocketBase URL):
+After getting your database set up, you will need to deploy the actual WebApp. You can do this by clicking the button below, and filling in the required environment variable (your PocketBase URL):
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FGermanHeim%2Fsvelte-shortener&env=POCKETBASE_URL&envDescription=Set%20your%20PocketBase%20URL%20(without%20%2F_%2F%20or%20%2Fapi%2F))
 
@@ -120,6 +120,6 @@ Distributed under the MIT License. See [`LICENSE.md`](/LICENSE.md) for more info
 
 ## Acknowledgments
 
-The UI is highly inspired on Pocketbase.</br>
+The UI is highly inspired on PocketBase.</br>
 The logo was made from the PocketBase's logo, using Feather's link icon.
 The background that is used was made by [rawpixel.com](https://rawpixel.com) and it was downloaded from [Freepik](https://www.freepik.com/free-vector/monochrome-abstract-contour-line-illustration_3841780.htm#query=topography&position=10&from_view=keyword).
